@@ -1,5 +1,6 @@
 using Firepuma.EventMediation.Abstractions.IntegrationEvents;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Firepuma.EventMediation.Simple.IntegrationEvents;
 
@@ -15,6 +16,7 @@ internal class IntegrationEventHandlerWrapper<TEvent> : IntegrationEventHandlerB
         IServiceProvider serviceProvider,
         CancellationToken cancellationToken)
     {
+        var logger = serviceProvider.GetRequiredService<ILogger<IntegrationEventHandlerWrapper<TEvent>>>();
         var handler = serviceProvider.GetService<IIntegrationEventHandler<TEvent>>();
 
         if (handler == null)
@@ -23,6 +25,8 @@ internal class IntegrationEventHandlerWrapper<TEvent> : IntegrationEventHandlerB
                                                 $"dependency injection by adding IIntegrationEventHandler<YOUR_EVENT_CLASS>, or by " +
                                                 $"calling the {nameof(ServiceCollectionExtensions.AddIntegrationEventMediation)} extension method");
         }
+
+        logger.LogInformation("Event type '{EventType}' is being handled by handler type '{HandlerType}'", typeof(TEvent).FullName, handler.GetType().FullName);
 
         await handler.HandleAsync(integrationEvent, cancellationToken);
     }
