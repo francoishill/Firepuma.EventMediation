@@ -1,0 +1,31 @@
+﻿name: Publish Nuget packages
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOTNET_VERSION: '6.0'
+  PACKAGE_VERSION: "0.1.0"
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - run: dotnet restore Firepuma.EventMediation.Abstractions
+      - run: dotnet restore Firepuma.EventMediation.Simple
+      - run: dotnet restore Firepuma.EventMediation.Tests
+
+      - run: dotnet test --no-restore
+
+      - run: dotnet pack --configuration Release --output . -p:PackageVersion=${{ env.PACKAGE_VERSION }} Firepuma.EventMediation.Abstractions/Firepuma.EventMediation.Abstractions.csproj
+      - run: dotnet pack --configuration Release --output . -p:PackageVersion=${{ env.PACKAGE_VERSION }} Firepuma.EventMediation.Simple/Firepuma.EventMediation.Simple.csproj
+
+      - run: dotnet nuget push *.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
