@@ -1,9 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Abstractions", "Firepuma.EventMediation.Abstractions\Firepuma.EventMediation.Abstractions.csproj", "{91499BC6-6327-4EE9-B4A2-79D497E740C4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Simple", "Firepuma.EventMediation.Simple\Firepuma.EventMediation.Simple.csproj", "{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{878F9720-90E2-46DA-8729-7167D79A46A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6B90C52A-B679-4AE9-A58B-160970CF59E7}"
@@ -23,14 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{91499BC6-6327-4EE9-B4A2-79D497E740C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91499BC6-6327-4EE9-B4A2-79D497E740C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91499BC6-6327-4EE9-B4A2-79D497E740C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91499BC6-6327-4EE9-B4A2-79D497E740C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Release|Any CPU.ActiveCfg = Release|Any CPU
