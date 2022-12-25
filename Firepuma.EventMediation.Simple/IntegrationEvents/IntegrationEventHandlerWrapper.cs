@@ -2,6 +2,8 @@ using Firepuma.EventMediation.Abstractions.IntegrationEvents;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+#pragma warning disable CS0618
+
 namespace Firepuma.EventMediation.Simple.IntegrationEvents;
 
 internal class IntegrationEventHandlerWrapper<TEvent> : IntegrationEventHandlerBase

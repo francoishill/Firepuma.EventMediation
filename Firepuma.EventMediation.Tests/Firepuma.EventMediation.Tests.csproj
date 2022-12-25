@@ -21,4 +21,8 @@
         </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Firepuma.EventMediation.IntegrationEvents\Firepuma.EventMediation.IntegrationEvents.csproj" />
+    </ItemGroup>
+
 </Project>

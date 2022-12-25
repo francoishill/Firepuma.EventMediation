@@ -5,8 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Firepuma.EventMediation.Simple;
 
+[Obsolete("Firepuma.EventMediation.Simple library is obsolete, please use Firepuma.EventMediation.IntegrationEvents and Firepuma.EventMediation.IntegrationEvents.CommandExecution instead")]
 public static class ServiceCollectionExtensions
 {
+    [Obsolete("Firepuma.EventMediation.Simple library is obsolete, please use Firepuma.EventMediation.IntegrationEvents and Firepuma.EventMediation.IntegrationEvents.CommandExecution instead")]
     public static void AddIntegrationEventMediation(this IServiceCollection services, Assembly[] assembliesWithHandlers)
     {
         services.AddTransient<IIntegrationEventMediator, IntegrationEventMediator>();

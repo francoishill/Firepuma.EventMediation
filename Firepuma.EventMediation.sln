@@ -4,10 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Abs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Simple", "Firepuma.EventMediation.Simple\Firepuma.EventMediation.Simple.csproj", "{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{209A2D98-5D8C-40EF-BB1B-3A2F31DA6302}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.EventMediation.InMemory", "Samples\Sample.EventMediation.InMemory\Sample.EventMediation.InMemory.csproj", "{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{878F9720-90E2-46DA-8729-7167D79A46A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{6B90C52A-B679-4AE9-A58B-160970CF59E7}"
@@ -16,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Tests", "Firepuma.EventMediation.Tests\Firepuma.EventMediation.Tests.csproj", "{5321760E-A599-4368-9D1E-B4C4D0B65621}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.IntegrationEvents", "Firepuma.EventMediation.IntegrationEvents\Firepuma.EventMediation.IntegrationEvents.csproj", "{D3581492-7324-441E-8D24-00A9AC822484}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.IntegrationEvents.CommandExecution", "Firepuma.EventMediation.IntegrationEvents.CommandExecution\Firepuma.EventMediation.IntegrationEvents.CommandExecution.csproj", "{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,17 +31,20 @@ Global
 		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF883446-BA4D-4208-95F5-AAFD4D7BAE36}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5321760E-A599-4368-9D1E-B4C4D0B65621}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3581492-7324-441E-8D24-00A9AC822484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3581492-7324-441E-8D24-00A9AC822484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3581492-7324-441E-8D24-00A9AC822484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3581492-7324-441E-8D24-00A9AC822484}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{57796E91-8FF8-43CE-9F6E-6E5ADD3E3C30} = {209A2D98-5D8C-40EF-BB1B-3A2F31DA6302}
 		{6B90C52A-B679-4AE9-A58B-160970CF59E7} = {878F9720-90E2-46DA-8729-7167D79A46A6}
 	EndGlobalSection
 EndGlobal
