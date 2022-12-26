@@ -6,6 +6,7 @@ using Firepuma.EventMediation.IntegrationEvents.ValueObjects;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
+// ReSharper disable UnusedType.Global
 // ReSharper disable LogMessageIsSentenceProblem
 // ReSharper disable RedundantExplicitArrayCreation
 
