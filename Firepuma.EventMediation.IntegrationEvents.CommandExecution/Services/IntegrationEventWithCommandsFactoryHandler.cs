@@ -6,6 +6,7 @@ using Firepuma.EventMediation.IntegrationEvents.ValueObjects;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
+// ReSharper disable LogMessageIsSentenceProblem
 // ReSharper disable RedundantExplicitArrayCreation
 
 namespace Firepuma.EventMediation.IntegrationEvents.CommandExecution.Services;
@@ -49,7 +50,9 @@ public class IntegrationEventWithCommandsFactoryHandler : IIntegrationEventHandl
         if (commands.Length == 0)
         {
             _logger.LogInformation(
-                "No commands are mapped to integration event type {EventType} id {IntegrationEventId}, creation attempt took {DurationMs} ms",
+                "No commands were produced for integration event type {EventType} id {IntegrationEventId}, creation " +
+                "attempt took {DurationMs} ms. The reason for no commands could be because it returns 0 commands in specific " +
+                "conditions, see previous logs messages for potential reason.",
                 eventPayload.GetType().FullName, integrationEventEnvelope.EventId, commandCreationStopwatch.ElapsedMilliseconds);
             return true;
         }
