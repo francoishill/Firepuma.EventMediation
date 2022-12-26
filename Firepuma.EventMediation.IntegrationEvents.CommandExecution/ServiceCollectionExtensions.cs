@@ -10,7 +10,7 @@ namespace Firepuma.EventMediation.IntegrationEvents.CommandExecution;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddIntegrationEventsForCommandExecution(
+    public static void AddIntegrationEventPublishingForCommandExecution(
         this IServiceCollection services)
     {
         services.AddTransient<ICommandExecutionDecorator, CommandExecutionIntegrationEventDecorator>();

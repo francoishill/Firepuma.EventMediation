@@ -9,21 +9,26 @@ namespace Firepuma.EventMediation.IntegrationEvents;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddIntegrationEventsCore<
+    public static void AddIntegrationEventPublishing<
         TTypeProvider,
-        TEventDeserializer,
-        TEventPublisher,
-        TIntegrationEventHandler>(
+        TEventPublisher>(
         this IServiceCollection services)
         where TTypeProvider : class, IIntegrationEventTypeProvider
-        where TEventDeserializer : class, IIntegrationEventDeserializer
         where TEventPublisher : class, IIntegrationEventPublisher
-        where TIntegrationEventHandler : class, IIntegrationEventHandler
     {
         services.AddTransient<IIntegrationEventTypeProvider, TTypeProvider>();
-        services.AddTransient<IIntegrationEventDeserializer, TEventDeserializer>();
         services.AddTransient<IIntegrationEventEnvelopeFactory, IntegrationEventEnvelopeFactory>();
         services.AddTransient<IIntegrationEventPublisher, TEventPublisher>();
+    }
+
+    public static void AddIntegrationEventReceiving<
+        TEventDeserializer,
+        TIntegrationEventHandler>(
+        this IServiceCollection services)
+        where TEventDeserializer : class, IIntegrationEventDeserializer
+        where TIntegrationEventHandler : class, IIntegrationEventHandler
+    {
+        services.AddTransient<IIntegrationEventDeserializer, TEventDeserializer>();
         services.AddTransient<IIntegrationEventHandler, TIntegrationEventHandler>();
     }
 }
