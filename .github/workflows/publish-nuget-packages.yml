@@ -6,8 +6,8 @@ on:
       - main
 
 env:
-  DOTNET_VERSION: '6.0'
-  PACKAGE_VERSION: "0.4.1"
+  DOTNET_VERSION: '7.0'
+  PACKAGE_VERSION: "0.4.2"
 
 jobs:
   build-and-deploy:

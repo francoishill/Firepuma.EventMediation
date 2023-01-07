@@ -184,7 +184,7 @@ internal class CommandExecutionIntegrationEventPublisher : ICommandExecutionInte
 
     private class PublishError
     {
-        public string Message { get; init; } = null!;
+        public required string Message { get; init; }
         public string? StackTrace { get; init; }
     }
 

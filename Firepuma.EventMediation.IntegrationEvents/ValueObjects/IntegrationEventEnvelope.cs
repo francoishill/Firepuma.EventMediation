@@ -2,7 +2,7 @@
 
 public class IntegrationEventEnvelope
 {
-    public string EventId { get; init; } = null!;
-    public string EventType { get; init; } = null!;
-    public string EventPayload { get; init; } = null!;
+    public required string EventId { get; init; }
+    public required string EventType { get; init; }
+    public required string EventPayload { get; init; }
 }
