@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.IntegrationEvents", "Firepuma.EventMediation.IntegrationEvents\Firepuma.EventMediation.IntegrationEvents.csproj", "{D3581492-7324-441E-8D24-00A9AC822484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Firepuma.EventMediation.IntegrationEvents.CommandExecution", "Firepuma.EventMediation.IntegrationEvents.CommandExecution\Firepuma.EventMediation.IntegrationEvents.CommandExecution.csproj", "{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +25,6 @@ Global
 		{D3581492-7324-441E-8D24-00A9AC822484}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3581492-7324-441E-8D24-00A9AC822484}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3581492-7324-441E-8D24-00A9AC822484}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F406DE7F-FA4D-438B-8282-B2D66BF9E3F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6B90C52A-B679-4AE9-A58B-160970CF59E7} = {878F9720-90E2-46DA-8729-7167D79A46A6}

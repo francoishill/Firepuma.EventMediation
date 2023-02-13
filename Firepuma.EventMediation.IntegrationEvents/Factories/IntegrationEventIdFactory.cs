@@ -1,4 +1,6 @@
-﻿namespace Firepuma.EventMediation.IntegrationEvents.Factories;
+﻿// ReSharper disable StringLiteralTypo
+
+namespace Firepuma.EventMediation.IntegrationEvents.Factories;
 
 public static class IntegrationEventIdFactory
 {

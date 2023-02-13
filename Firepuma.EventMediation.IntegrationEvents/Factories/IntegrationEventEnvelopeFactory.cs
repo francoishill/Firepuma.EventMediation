@@ -1,48 +1,16 @@
-﻿using Firepuma.EventMediation.IntegrationEvents.Abstractions;
-using Firepuma.EventMediation.IntegrationEvents.ValueObjects;
-using Microsoft.Extensions.Logging;
+﻿using Firepuma.EventMediation.IntegrationEvents.ValueObjects;
 using Newtonsoft.Json;
 
 namespace Firepuma.EventMediation.IntegrationEvents.Factories;
 
-internal class IntegrationEventEnvelopeFactory : IIntegrationEventEnvelopeFactory
+// ReSharper disable once UnusedType.Global
+public static class IntegrationEventEnvelopeFactory
 {
-    private readonly ILogger<IntegrationEventEnvelopeFactory> _logger;
-    private readonly IIntegrationEventTypeProvider _integrationEventTypeProvider;
-
-    public IntegrationEventEnvelopeFactory(
-        ILogger<IntegrationEventEnvelopeFactory> logger,
-        IIntegrationEventTypeProvider integrationEventTypeProvider)
+    // ReSharper disable once UnusedMember.Global
+    public static IntegrationEventEnvelope CreateEnvelope<TEvent>(
+        string integrationEventType,
+        TEvent integrationEventPayload)
     {
-        _logger = logger;
-        _integrationEventTypeProvider = integrationEventTypeProvider;
-    }
-
-    public IntegrationEventEnvelope CreateEnvelope(
-        string eventId,
-        string eventType,
-        string eventPayload)
-    {
-        return new IntegrationEventEnvelope
-        {
-            EventId = eventId,
-            EventType = eventType,
-            EventPayload = eventPayload,
-        };
-    }
-
-    public IntegrationEventEnvelope CreateEnvelopeFromObject<TEvent>(TEvent integrationEventPayload)
-    {
-        if (!_integrationEventTypeProvider.TryGetIntegrationEventType(integrationEventPayload, out var integrationEventType))
-        {
-            var payloadType = integrationEventPayload?.GetType().FullName;
-            _logger.LogError(
-                "Unable to get integration event for type {Type}",
-                payloadType);
-
-            throw new Exception($"Unable to get integration event for type {payloadType}");
-        }
-
         var integrationEventId = IntegrationEventIdFactory.GenerateIntegrationEventId();
 
         var integrationEventPayloadJson = JsonConvert.SerializeObject(
