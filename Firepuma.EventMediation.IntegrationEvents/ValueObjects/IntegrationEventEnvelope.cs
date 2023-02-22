@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 // ReSharper disable UnusedMember.Global
@@ -6,6 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace Firepuma.EventMediation.IntegrationEvents.ValueObjects;
 
+[DebuggerDisplay("T={EventType} I={EventId} P={EventPayload}")]
 public class IntegrationEventEnvelope
 {
     public required string EventId { get; init; }
