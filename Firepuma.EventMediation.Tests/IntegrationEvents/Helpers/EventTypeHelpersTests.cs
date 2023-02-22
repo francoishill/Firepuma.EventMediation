@@ -99,7 +99,7 @@ public class EventTypeHelpersTests
 
         // Act
         // Assert
-        Assert.ThrowsAny<Exception>(() =>
+        var targetInvocationException = Assert.Throws<System.Reflection.TargetInvocationException>(() =>
         {
             envelope.TryDeserializeIntegrationEventWithAttribute<MockAttributeWithEventType>(
                 Substitute.For<ILogger>(),
@@ -107,6 +107,9 @@ public class EventTypeHelpersTests
                 ExtractEventTypeFromAttribute,
                 out _);
         });
+
+        Assert.NotNull(targetInvocationException.InnerException);
+        Assert.IsType<System.Text.Json.JsonException>(targetInvocationException.InnerException);
     }
 
     [Fact]
