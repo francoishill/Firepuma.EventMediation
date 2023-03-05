@@ -1,4 +1,5 @@
-﻿using Firepuma.EventMediation.IntegrationEvents.Helpers;
+﻿using System.Reflection;
+using Firepuma.EventMediation.IntegrationEvents.Helpers;
 using Firepuma.EventMediation.IntegrationEvents.ValueObjects;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
@@ -70,7 +71,7 @@ public class EventTypeHelpersTests
         // Act
         var successful = envelope.TryDeserializeIntegrationEventWithAttribute<MockAttributeWithEventType>(
             Substitute.For<ILogger>(),
-            AppDomain.CurrentDomain.GetAssemblies(),
+            AppDomain.CurrentDomain.GetAssemblies().SelectMany(GetLoadableTypes),
             ExtractEventTypeFromAttribute,
             out var eventPayload);
 
@@ -99,11 +100,11 @@ public class EventTypeHelpersTests
 
         // Act
         // Assert
-        var targetInvocationException = Assert.Throws<System.Reflection.TargetInvocationException>(() =>
+        var targetInvocationException = Assert.Throws<TargetInvocationException>(() =>
         {
             envelope.TryDeserializeIntegrationEventWithAttribute<MockAttributeWithEventType>(
                 Substitute.For<ILogger>(),
-                AppDomain.CurrentDomain.GetAssemblies(),
+                AppDomain.CurrentDomain.GetAssemblies().SelectMany(GetLoadableTypes),
                 ExtractEventTypeFromAttribute,
                 out _);
         });
@@ -131,13 +132,25 @@ public class EventTypeHelpersTests
         // Act
         var successful = envelope.TryDeserializeIntegrationEventWithAttribute<MockAttributeWithEventType>(
             Substitute.For<ILogger>(),
-            AppDomain.CurrentDomain.GetAssemblies(),
+            AppDomain.CurrentDomain.GetAssemblies().SelectMany(GetLoadableTypes),
             ExtractEventTypeFromAttribute,
             out var eventPayload);
 
         // Assert
         Assert.False(successful);
         Assert.Null(eventPayload);
+    }
+
+    private static IEnumerable<Type> GetLoadableTypes(Assembly assembly)
+    {
+        try
+        {
+            return assembly.GetTypes();
+        }
+        catch (ReflectionTypeLoadException e)
+        {
+            return e.Types.Where(t => t != null)!;
+        }
     }
 
     [MockAttributeWithEventType("My/Event/Number1")]

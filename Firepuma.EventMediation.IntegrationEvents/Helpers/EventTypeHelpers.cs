@@ -36,13 +36,13 @@ public static class EventTypeHelpers
     public static bool TryDeserializeIntegrationEventWithAttribute<TAttribute>(
         this IntegrationEventEnvelope envelope,
         ILogger logger,
-        IEnumerable<Assembly> assemblies,
+        IEnumerable<Type> types,
         Func<TAttribute, string> extractEventTypeFromAttribute,
         [NotNullWhen(true)] out object? eventPayload)
         where TAttribute : Attribute
     {
         var stopwatch = Stopwatch.StartNew();
-        var typesWithMyAttribute = GetTypesWithAttribute<TAttribute>(assemblies)
+        var typesWithMyAttribute = GetTypesWithAttribute<TAttribute>(types)
             .Where(x => extractEventTypeFromAttribute(x.Attribute) == envelope.EventType)
             .ToList();
 
@@ -78,11 +78,11 @@ public static class EventTypeHelpers
 
     // ReSharper disable once UnusedMember.Global
     public static IEnumerable<string> GetDuplicateIntegrationEventTypeAttributes<TAttribute>(
-        IEnumerable<Assembly> assemblies,
+        IEnumerable<Type> types,
         Func<TAttribute, string> getIntegrationEventTypeFromAttribute)
         where TAttribute : Attribute
     {
-        var typesWithAttribute = GetTypesWithAttribute<TAttribute>(assemblies).ToList();
+        var typesWithAttribute = GetTypesWithAttribute<TAttribute>(types).ToList();
         return typesWithAttribute
             .GroupBy(x => getIntegrationEventTypeFromAttribute(x.Attribute))
             .Where(group => group.Count() > 1)
@@ -90,11 +90,10 @@ public static class EventTypeHelpers
     }
 
     private static IEnumerable<TypeAndAttribute<TAttribute>> GetTypesWithAttribute<TAttribute>(
-        IEnumerable<Assembly> assemblies)
+        IEnumerable<Type> types)
         where TAttribute : Attribute
     {
-        return assemblies
-            .SelectMany(assembly => assembly.GetTypes())
+        return types
             .Select(type => new TypeAndAttribute<TAttribute>
             {
                 Type = type,
